@@ -23,6 +23,7 @@ const Todolist = () => {
       text: inputValue.trim(),
       completed: false,
     };
+    
     setTodos([...todos, newTodo]);
     setInputValue("");
   };
@@ -32,10 +33,12 @@ const Todolist = () => {
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
     setTodos(updated);
+    
   };
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+    
   };
 
   const startEdit = (todo) => {
@@ -50,6 +53,8 @@ const Todolist = () => {
     setTodos(updated);
     setEditId(null);
     setEditValue("");
+    // console.log("update : ",editValue)
+    // console.log("id : ",id)
   };
 
   const cancelEdit = () => {
@@ -60,11 +65,12 @@ const Todolist = () => {
   const getFilteredTodos = () => {
     if (filter === "completed") return todos.filter((t) => t.completed);
     if (filter === "active") return todos.filter((t) => !t.completed);
+    
     return todos;
   };
 
   const filteredTodos = getFilteredTodos();
-
+  
   return (
     <div className="bg-black min-h-screen p-10 flex flex-col items-center">
       <h1 className="text-white text-3xl font-bold mb-8">TODOLIST</h1>
