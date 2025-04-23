@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Pencil, Trash2, Check, X } from "lucide-react";
 const Todolist = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -67,7 +67,7 @@ const Todolist = () => {
 
   return (
     <div className="bg-black min-h-screen p-10 flex flex-col items-center">
-      <h1 className="text-white text-3xl font-bold mb-8">📝 Todo List</h1>
+      <h1 className="text-white text-3xl font-bold mb-8">TODOLIST</h1>
 
       <div className="bg-white w-full max-w-xl rounded-lg p-6 shadow-md">
         {/* Add todo */}
@@ -121,15 +121,17 @@ const Todolist = () => {
                     />
                     <button
                       onClick={() => saveEdit(todo.id)}
-                      className="text-green-600 hover:underline"
+                      className="text-green-600 hover:text-green-800 cursor-pointer"
+                      title="Save"
                     >
-                      Save
+                      <Check size={18} />
                     </button>
                     <button
                       onClick={cancelEdit}
-                      className="text-gray-500 hover:underline"
+                      className="text-gray-500 hover:text-gray-700 cursor-pointer"
+                      title="Cancel"
                     >
-                      Cancel
+                      <X size={18} />
                     </button>
                   </div>
                 ) : (
@@ -145,15 +147,17 @@ const Todolist = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => startEdit(todo)}
-                        className="text-blue-500 hover:underline text-sm"
+                        className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                        title="Edit"
                       >
-                        Edit
+                        <Pencil size={18} />
                       </button>
                       <button
                         onClick={() => deleteTodo(todo.id)}
-                        className="text-red-500 hover:underline text-sm"
+                        className="text-red-500 hover:text-red-700 cursor-pointer"
+                        title="Delete"
                       >
-                        Delete
+                        <Trash2 size={18} />
                       </button>
                     </div>
                   </>
