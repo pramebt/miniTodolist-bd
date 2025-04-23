@@ -145,7 +145,7 @@ const Todolist = () => {
                     <span
                       onClick={() => toggleTodo(todo.id)}
                       className={`cursor-pointer flex-1 ${
-                        todo.completed ? "line-through text-gray-400" : ""
+                        todo.completed ? "line-through text-green-500" : ""
                       }`}
                     >
                       {todo.text}
